@@ -97,7 +97,7 @@ Testing Set adalah set yang digunakan untuk mengukur sejauh mana classifier berh
 \end{figure}
 \end{enumerate}
 
-\subsection{Mencoba Loading an example dataset, menjelaskan maksud dari tulisan tersebut dan mengartikan per baris}
+\subsection{Loading an example dataset}
 
 \begin{enumerate}
 \item Mengimmport dataset, iris dan digit sebagai contoh data.
@@ -129,4 +129,53 @@ Testing Set adalah set yang digunakan untuk mengukur sejauh mana classifier berh
 	\end{center}
 \end{figure}
 
+\end{enumerate}
+
+\subsection{Learning and predicting}
+\begin{enumerate}
+\item Pada website sebelumnya, cari Learning And Predicting dan ikuti langkah -langkahnya.
+\item Buka Python Shell, atau dengan membukan Command Prompt di PC dan mengetikan python. maka akan masuk ke Python Shellnya pada gambar\ref{gambar1}.
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=0.5]{figures/tasya1.png}
+   	 \caption{Membuka Python Shell}
+   	 \label{gambar1}
+	\end{center}
+\end{figure}
+
+\item Pada python shell ketikan (from sklearn import svm) yang dimana artinya akan memanggil dan menggunakan estimator dari kelas sklearn.svm.SVC pada gambar\ref{gambar2}.
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=0.5]{figures/tasya2.png}
+   	 \caption{Menggunakan Estimator Sklearn}
+     \label{gambar2}	
+	\end{center}
+\end{figure}
+
+\item Kemudian, kita definisikan clf sebagai classfier, disini gamma didefinisikan secara manual pada gambar\ref{gambar3}.
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=1]{figures/tasya3.png}
+   	 \caption{Mendefinisikan Classifier}
+     \label{gambar3}	
+	\end{center}
+\end{figure}
+
+\item Estimator clf (for classifier) pertama kali dipasang pada model. Ini dilakukan dengan melewati training set ke metode fit. Untuk training set, akan menggunakan semua gambar dari set data yang ada, kecuali untuk gambar terakhir, yang dicadangan untuk prediksi. Pada skrip dibawah memilih training set dengan sintaks Python [: -1], yang menghasilkan array baru yang berisi semua kecuali item terakhir dari digits.data terlihat pada gambar\ref{gambar4}.
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=0.5]{figures/tasya4.png}
+   	 \caption{Memanggil Classifier Tanpa Baris Terakhir}
+     \label{gambar4}	
+	\end{center}
+\end{figure}
+
+\item Pada penggalan skrip dibawah, ini menunjukan prediksi nilai baru menggunakan gambar terakhir dari digits.data. Dengan prediksi akan menentukan gambar dari set pelatihan yang paling cocok dengan gambar terakhir terlihat pada gambar\ref{gambar5}.
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=1]{figures/tasya5.png}
+   	 \caption{Memprediksi Nilai Baru}
+     \label{gambar5}	
+	\end{center}
+\end{figure}
 \end{enumerate}
