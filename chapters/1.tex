@@ -107,6 +107,7 @@ Testing Set adalah set yang digunakan untuk mengukur sejauh mana classifier berh
    	 \caption{Penjelasan }	
 	\end{center}
 \end{figure}
+
 \item Misalnya, dalam kasus dataset digit, digits.data memberikan akses ke fitur yang dapat digunakan untuk mengklasifikasikan sampel digit.
 \begin{figure}
 	\begin{center}
@@ -114,6 +115,7 @@ Testing Set adalah set yang digunakan untuk mengukur sejauh mana classifier berh
    	 \caption{Penjelasan 2}	
 	\end{center}
 \end{figure}
+
 \item Digit.target memberikan kebenaran dasar untuk dataset digit, yaitu angka yang sesuai dengan setiap gambar digit yang dipelajari.
 \begin{figure}
 	\begin{center}
@@ -121,6 +123,7 @@ Testing Set adalah set yang digunakan untuk mengukur sejauh mana classifier berh
    	 \caption{Penjelasan 3}	
 	\end{center}
 \end{figure}
+
 \item Menggambarkan bagaimana mulai dari masalah awal seseorang dapat membentuk data untuk konsumsi di scikit-belajar.
 \begin{figure}
 	\begin{center}
@@ -176,6 +179,60 @@ Testing Set adalah set yang digunakan untuk mengukur sejauh mana classifier berh
    	 \includegraphics[scale=1]{figures/tasya5.png}
    	 \caption{Memprediksi Nilai Baru}
      \label{gambar5}	
+	\end{center}
+\end{figure}
+\end{enumerate} 
+
+\subsection{Model Persistance} 
+\begin{enumerate}
+\item Pada Python Shell ketikan `from sklearn import svm' artinya akan mengimport sebuah Support Vector Machine(SVM) yang merupakan algoritma classification yang akan diambil dari Scikit-Learn.
+\item Kemudian, lanjutkan dengan `from sklearn import datasets' yang artinya akan mengambil package datasets dari Scikit-Learn.
+\item ketikan, clf = svm.SVC(gamma=`scale') berfungsi untuk mendeklarasikan suatu value yang bernama clf yang berisi gamma. Parameter gamma menentukan seberapa jauh pengaruh dari satu contoh training.
+\item Ketikan, X, y = iris.data, iris.target, artinya X sebagai data iris, dan y merupakan larik target.
+\item Ketikan, clf.fit(X, y) berfungsi untuk melakukan pengujian classifier. hasilnya seperti pada gambar \ref{gambar6}.
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=0.7]{figures/tasya7.png}
+   	 \caption{Hasil Pengujian Classifier}
+     \label{gambar6}	
+	\end{center}
+\end{figure}
+
+\item Dari gambar \ref{gambar7} dapat dijelaskan bahwa akan mengimport Pickle dari Python. Pickle digunakan untuk serialisasi dan de-serialisasi struktur objek Python. Objek apa pun dengan Python dapat di-Pickle sehingga dapat disimpan di disk. kemudian menyimpan data objek ke file CLF sebelumnya dengan menggunakan function pickle.dumps(clf).
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=1]{figures/tasya8.png}
+   	 \caption{Hasil Pengujian Classifier}
+     \label{gambar7}	
+	\end{center}
+\end{figure}
+
+\item Setelah mengetikan fungsi fungsi diatas, selanjutnya ketikan `clf2 = pickle.loads(s)' yang artinya pickle.loads digunakan untuk memuat data pickle dari string byte. "S" dalam loads mengacu pada fakta bahwa dalam Python 2, data dimuat dari string, seperti pada gambar \ref{gambar8}
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=1]{figures/tasya9.png}
+   	 \caption{Pickle Pada Python}
+     \label{gambar8}	
+	\end{center}
+\end{figure}
+
+\item Pada gambar \ref{gambar9} dilakukan pengujian nilai baru dengan menggunakan `cf2.predict(X[0:1])' dengan target asumsinya (0,1) hasilnya berbentuk array.
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=1]{figures/tasya10.png}
+   	 \caption{Pengujian Classifier Pickle}
+    \label{gambar9}	
+	\end{center}
+\end{figure}
+
+\item Dalam kasus khusus scikit-learn, mungkin lebih menarik untuk menggunakan joblib (dump dan load) untuk menggantikan Pickle, yang lebih efisien pada data besar tetapi hanya bisa di Pickle ke disk dan tidak ke string. untuk menggunakan Joblib pertama ketikan `from joblib import dump, load' yang artinya akan Merekonstruksi objek Python dari file yang sudah ada.
+
+dump(clf, `filename.joblib') akan merekontruksi file CLF yang tadi sudah dideklarasikan.
+clf = load(`filename.joblib') untuk mereload model yang sudah di Pickle
+\begin{figure}
+	\begin{center}
+   	 \includegraphics[scale=1]{figures/tasya11.png}
+   	 \caption{Penggunaan Joblib}	
 	\end{center}
 \end{figure}
 \end{enumerate}
