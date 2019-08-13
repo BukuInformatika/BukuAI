@@ -1,0 +1,16 @@
+\begin{verbatim}
+import librosa
+import librosa.feature
+import librosa.display
+import glob
+import numpy as np
+import matplotlib.pyplot as plt
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+from keras.utils.np_utils import to_categorical
+
+# In[]
+audio_path = 'genres/classical/classical.00010.au'
+x , sr = librosa.load(audio_path)
+print(type(x), type(sr))
+\end{verbatim}
